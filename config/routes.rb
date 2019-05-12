@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :todos do
-    resources :items
+  namespace :api do
+    namespace :v1 do
+      resources :todos do
+        resources :items
+      end 
+    end
   end 
 end

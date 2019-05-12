@@ -1,30 +1,30 @@
-class TodosController < ApplicationController
+class Api::V1::TodosController < ApplicationController
   before_action :set_todo, only: [:show, :update, :destroy]
 
-  # GET /todos
+  # GET api/v1/todos
   def index
     @todos = Todo.all
     json_response(@todos)
   end
 
-  # POST /todos
+  # GET api/v1/todos/:id
+  def show
+    json_response(@todo)
+  end
+
+  # POST api/v1/todos
   def create
     @todo = Todo.create!(todo_params)
     json_response(@todo, :created)
   end
 
-  # GET /todos/:id
-  def show
-    json_response(@todo)
-  end
-
-  # PUT /todos/:id
+  # PUT api/v1/todos/:id
   def update
     @todo.update(todo_params)
     head :no_content
   end
 
-  # DELETE /todos/:id
+  # DELETE api/v1/todos/:id
   def destroy
     @todo.destroy
     head :no_content

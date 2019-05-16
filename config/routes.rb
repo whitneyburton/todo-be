@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  # devise_for :users
+  devise_for :users
   namespace :api do
     namespace :v1 do
-      resources :todos do
-        resources :items
+      resource :sessions, only: [:create, :destroy]
+      resources :users do
+        resources :todos do
+          resources :items
+        end
       end 
-      resources :sessions, only: [:create, :destroy]
     end
   end 
 end

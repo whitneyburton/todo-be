@@ -54,5 +54,5 @@ Rails.application.configure do
 
   # Default URL options: this is used when Devise generates the emails for  
   # confirming accounts and for resetting passwords.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

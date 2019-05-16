@@ -1,48 +1,41 @@
 class Api::V1::TodosController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
-  before_action :set_todo, only: [:show, :update, :destroy]
 
-  # GET api/v1/todos
+  # GET api/v1/users/:id/todos
   def index
-    @todos = Todo.all
-    # @todos = @user.todos
-    json_response(@todos)
+    user = User.find(params[:user_id])
+    todos = user.todos
+    json_response(todos)
   end
 
-  # GET api/v1/todos/:id
+  # GET api/v1/users/:id/todos/:id
   def show
+    todo = Todo.find(params[:id])
     json_response(@todo)
   end
 
-  # POST api/v1/todos
+  # POST api/v1/users/:id/todos
   def create
-    @todo = Todo.create!(todo_params)
-    json_response(@todo, :created)
+    todo = Todo.create!(todo_params)
+    json_response(todo, :created)
   end
 
-  # PUT api/v1/todos/:id
+  # PUT api/v1/users/:id/todos/:id
   def update
-    @todo.update(todo_params)
+    todo = Todo.find(params[:id])
+    todo.update(todo_params)
     head :no_content
   end
 
-  # DELETE api/v1/todos/:id
+  # DELETE api/v1/users/:id/todos/:id
   def destroy
-    @todo.destroy
+    todo = Todo.find(params[:id])
+    todo.destroy
     head :no_content
   end
 
   private
 
   def todo_params
-    params.permit(:title, :created_by)
-  end
-
-  def set_todo
-    @todo = Todo.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
+    params.permit(:title)
   end
 end

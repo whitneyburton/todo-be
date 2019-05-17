@@ -2,10 +2,9 @@
 The Tracker API allows users to login and create to-do lists with items to accomplish tasks.
 ### View [Front-End Repository](http://frontend.turing.io/projects/palette-picker.html)
 
-### Technologies 
-* Ruby on Rails 5.2.3
-* Devise
-* Simple Token Authentication 
+### Technologies & Versions
+* [Rails 5.2.3](https://guides.rubyonrails.org/)
+* [Devise](https://github.com/plataformatec/devise#starting-with-rails)
 
 ### Set-up: 
 #### Back-end
@@ -160,3 +159,7 @@ Does not return any data.
 
 Example:
 `DELETE /api/v1/users/1/todos/2`
+
+---
+## Contributors
+**[Whitney Burton](https://github.com/whitneyburton)**

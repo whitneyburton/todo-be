@@ -1,13 +1,16 @@
 class Api::V1::ItemsController < ApplicationController
   # GET api/v1/users/:id/todos/:todo_id/items
   def index 
+    # require "pry";binding.pry
     todo = Todo.find(params[:todo_id])
     json_response(todo.items)
   end
 
   # GET api/v1/users/:id/todos/:todo_id/items/:id
   def show
-    json_response(@item)
+    todo = Todo.find(params[:todo_id])
+    item = todo.items.find_by!(id: params[:id]) if todo
+    json_response(item)
   end
 
   # POST api/v1/users/:id/todos/:todo_id/items

@@ -1,6 +1,6 @@
 # TRACKER API
 The Tracker API allows users to login and create to-do lists with items to accomplish tasks.
-### View [Front-End Repository](http://frontend.turing.io/projects/palette-picker.html)
+#### View [Front-End Repository](https://github.com/whitneyburton/todo-fe)
 
 ### Technologies & Versions
 * [Rails 5.2.3](https://guides.rubyonrails.org/)

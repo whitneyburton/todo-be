@@ -1,5 +1,4 @@
 # TRACKER API
---- 
 The Tracker API allows users to login and create to-do lists with items to accomplish tasks.
 ### View [Front-End Repository](http://frontend.turing.io/projects/palette-picker.html)
 
@@ -18,7 +17,9 @@ Run `bundle install` from the root directory
 
 Run `rails server` 
 
+--- 
 ### User Endpoints
+--- 
 #### `POST /api/v1/sessions`
 Signs an existing user in.
 #### Required Parameters
@@ -36,6 +37,7 @@ Example:
 }
 ```
 
+--- 
 #### `DELETE /api/v1/sessions/:id`
 Signs the existing user out. **WIP**
 
@@ -43,7 +45,9 @@ Returns a 204 status.
 
 Does not return any data.
 
+--- 
 ### To-dos/Items Endpoints
+--- 
 #### `GET /api/v1/users/:id/todos`
 Returns all of the to-do's for the specified user.
 #### Returned Data Format
@@ -66,6 +70,7 @@ Returns all of the to-do's for the specified user.
 ]
 ```
 
+--- 
 #### `GET /api/v1/users/:id/todos/:todo_id/items`
 Returns the item for the specified to-do for the specified user.
 #### Returned Data Format
@@ -90,6 +95,7 @@ Returns the item for the specified to-do for the specified user.
 ]
 ```
 
+--- 
 #### `POST /api/v1/users/:id/todos`
 Creates a new to-do for the specified user.
 
@@ -114,6 +120,7 @@ Example:
 }
 ```
 
+--- 
 #### `POST /api/v1/users/:id/todos/:todo_id/items`
 Creates a new item for the specified to-do for the specified user.
 
@@ -129,8 +136,9 @@ Example:
 `POST /api/v1/users/1/todos/1/items?name=Wash the windows&done=false`
 
 
-#### `PUT /api/v1/users/:id/todos/:todo_id/items/:item_id``
-Updates the 'done' true/false for an item for the to-do for the specified user.
+--- 
+#### `PUT /api/v1/users/:id/todos/:todo_id/items/:item_id`
+Updates the done true/false value for an item for the to-do for the specified user.
 
 Returns a 204 status.
 
@@ -142,7 +150,8 @@ Does not return any data.
 Example:
 `POST /api/v1/users/1/todos/2`
 
-#### `DELETE /api/v1/users/:id/todos/:todo_id
+--- 
+#### `DELETE /api/v1/users/:id/todos/:todo_id`
 Deletes the to-do and it's associated item.
 
 Returns a 204 status.
